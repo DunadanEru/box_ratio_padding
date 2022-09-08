@@ -1,0 +1,138 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+:root {
+    --gapSize: 10px;
+    --inpHeight: 35px;
+    --iconBox: 20px;
+}
+
+body {
+    background: #7a7a7a;
+}
+
+.wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.box {
+    position: relative;
+    flex: 0 0 calc(33.3333% - var(--gapSize));
+    color: #fff;
+    /* padding: var(--gapSize); */
+    /* aspect-ratio: 3/2; */
+    background: #f14100;
+}
+
+.box::before{
+    display: block;
+    padding-top: 66.6666%;
+    content: "123"; 
+    background: yellow;
+    color: #000;
+}
+
+.box > span{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+}
+
+.box > strong{
+    top: 0;
+    left: 0;
+    position: absolute;
+    border: 2px solid #000;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: #ffb700;
+    z-index: 2;
+}
+
+.rtl {
+    direction: rtl;
+}
+
+.rtl .box > strong{
+    left: auto;
+    right: 0;
+}
+
+
+.popup-box {
+    z-index: 10;
+    position: fixed;
+    width: 25vw;
+    min-width: 250px;
+    padding: 30px 20px;
+    background: #403d3d;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+.input-container {
+    display: flex; 
+    position: relative;
+    width: 100%;
+    height: var(--inpHeight);
+}
+
+.input-icon {
+    position: absolute;
+    display: flex;
+    width: var(--iconBox);
+    height: var(--iconBox);
+    background: #ffb700;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    top: calc((var(--inpHeight) - var(--iconBox))/2);
+    right: 0px;
+}
+
+.inp {
+    width: 100%;
+    padding-inline-end: var(--iconBox);
+}
+
+.rtl .input-icon {
+    left: 0;
+    right: auto;
+}
+
+.btn-container {
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+}
+
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45%;
+    height: var(--inpHeight);
+    transition: all 1s;
+    border: 0;
+    outline: 0;
+    appearance: none;
+}
+
+.btn.btn-active {
+    background: rgb(160, 120, 18);
+}
